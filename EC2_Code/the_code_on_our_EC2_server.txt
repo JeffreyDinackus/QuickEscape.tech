@@ -27,7 +27,7 @@ from time import sleep
 
 
 call = client.calls.create(
-        Url-=''
+        url-=''
         to='+14155551212',
         from_='+15017122661'
         )
