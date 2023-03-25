@@ -1,1 +1,4 @@
+We used the Twilio Docs for our Python API call found on this page(the call is on our EC2 Amazon Linux 2 VM):
+https://www.twilio.com/docs/sms/tutorials/how-to-send-sms-messages-python
+
 
