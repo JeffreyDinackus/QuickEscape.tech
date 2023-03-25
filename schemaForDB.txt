@@ -1,0 +1,13 @@
+This will be the schema for our MongoDB database:
+
+1. Username/Name of User
+2. User Phone Number (know by twilio as "to")
+3. Message Body(What we want to send to the user as the quick escape)
+4. any kind of authentication from the user?
+5. more?
+
+Twilio stuff (may not be necessary to hold in the DB):
+
+account_sid
+auth_Token
+my twilio phone number from twilio: also know as "from"
