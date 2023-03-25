@@ -28,8 +28,8 @@ from time import sleep
 
 call = client.calls.create(
         url-=''
-        to='+14155551212',
-        from_='+15017122661'
+        to='+1',
+        from_='+1'
         )
 
 print(call.sid)
