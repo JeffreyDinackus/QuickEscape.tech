@@ -11,6 +11,7 @@ const dbo = require("./db/conn");
  
 app.listen(port, () => {
   // perform a database connection when server starts
+  console.log("attempting to connect ... ");
   dbo.connectToServer(function (err) {
     if (err) console.error(err);
  
