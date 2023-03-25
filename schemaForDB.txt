@@ -10,4 +10,4 @@ Twilio stuff (may not be necessary to hold in the DB):
 
 account_sid
 auth_Token
-my twilio phone number from twilio: also know as "from"
+my twilio phone number from twilio: also know as "from_"
