@@ -1,1 +1,8 @@
+#!/bin/python3
+from time import sleep
 
+
+while True:
+        print("test")
+        sleep(10)
+        #api call goes here
