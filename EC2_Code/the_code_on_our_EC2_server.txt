@@ -18,8 +18,9 @@ while True:
                 message = client.messages \
                 .create(
                         body='This is the ship that made the Kessel Run in fourteen parsecs?',
-                        from_='+18339023143',
-                        to='+12024597238'
+                        #hidden for privacy
+                        from_='+1',
+                        to='+1'
                 )
 
                 print(message.sid)
