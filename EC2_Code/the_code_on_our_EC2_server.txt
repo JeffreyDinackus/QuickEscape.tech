@@ -27,7 +27,8 @@ from time import sleep
 
 
 call = client.calls.create(
-        url=''
+        #this is hosted by twilio assets static hosting. 
+        url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3'
         to='+1',
         from_='+1'
         )
