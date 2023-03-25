@@ -3,23 +3,23 @@
 import os
 from twilio.rest import Client
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
-auth_token = os.environ['TWILIO_AUTH_TOKEN')
+auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
 #this is to make the wait time work
 from time import sleep
 
+
 while True:
         print("test")
         sleep(10)
-        #api call to our express server goes here
-        if (False):
-        message = client.messages \
-        .create(
-                body='This is the ship that made the Kessel Run in fourteen parsecs?',
-                #hidden for privacy
-                from_='+1',
-                to='+1'
-        )
+        #api call goes here
+        if (True):
+                message = client.messages \
+                .create(
+                        body='This is the ship that made the Kessel Run in fourteen parsecs?',
+                        from_='+18339023143',
+                        to='+12024597238'
+                )
 
-        print(message.sid)
+                print(message.sid)
