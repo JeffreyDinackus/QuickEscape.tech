@@ -11,10 +11,6 @@ TWILIO_PHONE = os.environ['TWILIO_PHONE']
 mongo_auth = os.environ['MONGO_AUTH']
 client = Client(account_sid, auth_token)
 
-#these imports are for scheduler
-from datetime import datetime
-now = datetime.now()
-
 #this is to make the wait time work for our loop
 from time import sleep
 
