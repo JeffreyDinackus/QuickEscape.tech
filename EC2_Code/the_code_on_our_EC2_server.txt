@@ -146,10 +146,9 @@ while True:
 
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    print(response.text)
+    print(response.json)
     # Checks whether a scheduled task
     # is pending to run or not
     schedule.run_pending()
     time.sleep(10)
-    
     
