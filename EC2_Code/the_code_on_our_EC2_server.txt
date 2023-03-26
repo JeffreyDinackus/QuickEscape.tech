@@ -142,7 +142,7 @@ while True:
     headers = {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      'api-key': "$mongo_auth", 
+      'api-key': "DnwgdZXY6S4HkShKhNgvk07aSxeEBdLXQbVQly1aENTWKzqXQjdNybLzCBGS5N0m", 
     }
 
 
