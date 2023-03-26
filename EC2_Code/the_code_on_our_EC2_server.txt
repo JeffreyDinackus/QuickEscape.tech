@@ -45,7 +45,7 @@ import time
 
 # print(call.sid)
  
-def pick_me_up():
+def pick_me_up(user_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
@@ -60,9 +60,17 @@ def pick_me_up():
                 to='+12024597238'
         )
         print(message.sid)
-
+        sleep(10)
+        .create(
+                body='I dont have roadside assistance...',
+                #hidden for privacy
+                from_='+18339023143',
+                to='+12024597238'
+        )
+        print(message.sid)
     
-def angry_dad():
+    
+def angry_dad(user_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
@@ -95,15 +103,10 @@ def angry_dad():
                 to='+12024597238'
         )
         print(message.sid)
-        
-
-# Functions setup
-def message():
-    print("Hoohacks 2023")
  
 # Task scheduling
 # After every 10mins geeks() is called.
-schedule.every(.1).minutes.do(pickMeUp)
+schedule.every(15).minutes.do(pickMeUp(user_phone_number))
 
 # Loop so that the scheduling task
 # keeps on running all time.
