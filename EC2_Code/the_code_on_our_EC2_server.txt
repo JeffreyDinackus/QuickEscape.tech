@@ -6,6 +6,8 @@ from twilio.rest import Client
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 mongo_auth = os.environ['MONGO_AUTH']
+MY_PHONE = os.environ['MY_PHONE']
+mongo_auth = os.environ['MONGO_AUTH']
 client = Client(account_sid, auth_token)
 
 #these imports are for scheduler
@@ -53,7 +55,7 @@ def pick_me_up(final_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/i_need_a_ride.mp3',
-                to='+12024597238',
+                to=MY_PHONE,
                 from_='+18339023143'
                 )
         message = client.messages \
@@ -61,7 +63,7 @@ def pick_me_up(final_phone_number):
                 body='My car broke down and I dont have roadside, you gotta come get me',
                 #hidden for privacy
                 from_='+18339023143',
-                to='+12024597238'
+                to=MY_PHONE
         )
         print(message.sid)
         sleep(10)
@@ -70,7 +72,7 @@ def pick_me_up(final_phone_number):
                 body='I dont have roadside assistance...',
                 #hidden for privacy
                 from_='+18339023143',
-                to='+12024597238'
+                to=MY_PHONE
         )
         print(message.sid)
         sleep(10)
@@ -79,7 +81,7 @@ def pick_me_up(final_phone_number):
                 body='I really need you...',
                 #hidden for privacy
                 from_='+18339023143',
-                to='+12024597238'
+                to=MY_PHONE
         )
         print(message.sid)
 
@@ -88,7 +90,7 @@ def angry_dad(final_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
-                to='+12024597238',
+                to=MY_PHONE,
                 from_='+18339023143'
                 )
         message = client.messages \
@@ -96,7 +98,7 @@ def angry_dad(final_phone_number):
                 body='GET HOME RIGHT NOW.',
                 #hidden for privacy
                 from_='+18339023143',
-                to='+12024597238'
+                to=MY_PHONE
         )
         print(message.sid)
         sleep(15)
@@ -105,7 +107,7 @@ def angry_dad(final_phone_number):
                 body='GET HOME NOW.',
                 #hidden for privacy
                 from_='+18339023143',
-                to='+12024597238'
+                to=MY_PHONE
         )
         print(message.sid)
         sleep(10)
@@ -113,8 +115,8 @@ def angry_dad(final_phone_number):
         .create(
                 body='YOU WONT DRIVE FOR A MONTH',
                 #hidden for privacy
-                from_='+18339023143',
-                to='+12024597238'
+                from_=,
+                to=MY_PHONE
         )
         print(message.sid)
  
