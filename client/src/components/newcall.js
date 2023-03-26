@@ -15,6 +15,9 @@ export default function NewCall(props){
    });
 	response.json().then((res) => {
 		console.log(res.access_token);
+		console.log(callTime*60000);
+		console.log(Date.now());
+		console.log(Date.now() + (callTime*60000));
 		console.log(res);
 		fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/insertOne', {
            method: "POST",
@@ -24,7 +27,7 @@ export default function NewCall(props){
 		    "dataSource": "quickexit",
 		    "document": {
 		        "userEmail": props.email,
-		        "callTime": Date.now() + callTime*60000,
+		        "callTime": (Date.now() + 60000),
 		        "callType": callType,
 		        "phoneNumber": phoneNumber,
 		        "completed": "false"
