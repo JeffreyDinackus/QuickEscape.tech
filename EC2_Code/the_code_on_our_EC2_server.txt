@@ -107,7 +107,7 @@ def angry_dad(user_phone_number):
  
 # Task scheduling
 # After every 10mins geeks() is called.
-schedule.every(15).minutes.do(pickMeUp(user_phone_number))
+schedule.every(.3).minutes.do(pickMeUp(user_phone_number))
 
 # Loop so that the scheduling task
 # keeps on running all time.
