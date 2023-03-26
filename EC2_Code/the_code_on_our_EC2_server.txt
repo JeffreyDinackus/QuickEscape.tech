@@ -46,20 +46,20 @@ import time
 # print(call.sid)
  
 def pickMeUp():
-call = client.calls.create(
-        #this is hosted by twilio assets static hosting. 
-        url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
-        to='+1',
-        from_='$TWILIO_PHONE'
+        call = client.calls.create(
+                #this is hosted by twilio assets static hosting. 
+                url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
+                to='$MY_PHONE',
+                from_='$TWILIO_PHONE'
+                )
+        message = client.messages \
+        .create(
+                body='My car broke down and I dont have roadside, you gotta come get me',
+                #hidden for privacy
+                from_='$MY_PHONE',
+                to='$TWILIO_PHONE'
         )
-message = client.messages \
-.create(
-       body='My car broke down and I dont have roadside, you gotta come get me',
-       #hidden for privacy
-       from_='+1',
-       to='$TWILIO_PHONE'
-       )
-print(message.sid)
+        print(message.sid)
 
 
 # Functions setup
