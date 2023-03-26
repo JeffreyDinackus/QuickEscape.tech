@@ -7,6 +7,7 @@ account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 mongo_auth = os.environ['MONGO_AUTH']
 MY_PHONE = os.environ['MY_PHONE']
+TWILIO_PHONE = os.environ['TWILIO_PHONE']
 mongo_auth = os.environ['MONGO_AUTH']
 client = Client(account_sid, auth_token)
 
@@ -56,13 +57,13 @@ def pick_me_up(final_phone_number):
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/i_need_a_ride.mp3',
                 to=MY_PHONE,
-                from_='+18339023143'
+                from_=TWILIO_PHONE
                 )
         message = client.messages \
         .create(
                 body='My car broke down and I dont have roadside, you gotta come get me',
                 #hidden for privacy
-                from_='+18339023143',
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
@@ -71,7 +72,7 @@ def pick_me_up(final_phone_number):
         .create(
                 body='I dont have roadside assistance...',
                 #hidden for privacy
-                from_='+18339023143',
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
@@ -80,7 +81,7 @@ def pick_me_up(final_phone_number):
         .create(
                 body='I really need you...',
                 #hidden for privacy
-                from_='+18339023143',
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
@@ -91,13 +92,13 @@ def angry_dad(final_phone_number):
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
                 to=MY_PHONE,
-                from_='+18339023143'
+                from_=TWILIO_PHONE
                 )
         message = client.messages \
         .create(
                 body='GET HOME RIGHT NOW.',
                 #hidden for privacy
-                from_='+18339023143',
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
@@ -106,7 +107,7 @@ def angry_dad(final_phone_number):
         .create(
                 body='GET HOME NOW.',
                 #hidden for privacy
-                from_='+18339023143',
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
@@ -115,7 +116,7 @@ def angry_dad(final_phone_number):
         .create(
                 body='YOU WONT DRIVE FOR A MONTH',
                 #hidden for privacy
-                from_=,
+                from_=TWILIO_PHONE,
                 to=MY_PHONE
         )
         print(message.sid)
