@@ -5,6 +5,7 @@ import os
 from twilio.rest import Client
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
+mongo_auth = os.environ['MONGO_AUTH']
 client = Client(account_sid, auth_token)
 
 #these imports are for scheduler
@@ -141,7 +142,7 @@ while True:
     headers = {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      'api-key': "DnwgdZXY6S4HkShKhNgvk07aSxeEBdLXQbVQly1aENTWKzqXQjdNybLzCBGS5N0m", 
+      'api-key': "$MONGO_AUTH", 
     }
 
 
