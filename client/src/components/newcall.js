@@ -27,7 +27,7 @@ export default function NewCall(props){
 		    "dataSource": "quickexit",
 		    "document": {
 		        "userEmail": props.email,
-		        "callTime": (Date.now() + 60000),
+		        "callTime": (Date.now() + (callTime*60000)),
 		        "callType": callType,
 		        "phoneNumber": phoneNumber,
 		        "completed": "false"
