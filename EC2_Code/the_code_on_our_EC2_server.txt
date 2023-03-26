@@ -56,7 +56,7 @@ user_phone_number = 1
 def pick_me_up(user_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
-                url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
+                url='https://telemagenta-goldfish-8538.twil.io/assets/i_need_a_ride.mp3',
                 to='+12024597238',
                 from_='+18339023143'
                 )
@@ -91,7 +91,7 @@ def pick_me_up(user_phone_number):
 def angry_dad(user_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
-                url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
+                url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
                 to='+12024597238',
                 from_='+18339023143'
                 )
