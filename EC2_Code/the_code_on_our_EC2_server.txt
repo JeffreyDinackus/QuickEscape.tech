@@ -61,6 +61,7 @@ def pick_me_up(user_phone_number):
         )
         print(message.sid)
         sleep(10)
+        message = client.messages \
         .create(
                 body='I dont have roadside assistance...',
                 #hidden for privacy
