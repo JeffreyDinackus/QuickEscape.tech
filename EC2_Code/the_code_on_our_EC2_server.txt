@@ -77,6 +77,25 @@ def angry_dad():
                 to='+12024597238'
         )
         print(message.sid)
+        sleep(15)
+        message = client.messages \
+        .create(
+                body='GET HOME NOW.',
+                #hidden for privacy
+                from_='+18339023143',
+                to='+12024597238'
+        )
+        print(message.sid)
+        sleep(10)
+        message = client.messages \
+        .create(
+                body='YOU WONT DRIVE FOR A MONTH',
+                #hidden for privacy
+                from_='+18339023143',
+                to='+12024597238'
+        )
+        print(message.sid)
+        
 
 # Functions setup
 def message():
