@@ -159,17 +159,17 @@ while True:
                 url = "https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/deleteOne"
 
                 payload = json.dumps({
-                "collection": "records",
-                "database": "employees",
-                "dataSource": "quickexit",
-                "filter": {
-                        "callTime": call_time
-                }
+                    "collection": "calls",
+                    "database": "quickexit",
+                    "dataSource": "quickexit",
+                    "filter": {
+                        "callTime":  call_time
+                    }
                 })
                 headers = {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Headers': '*',
-                'api-key': mongo_auth,
+                  'Content-Type': 'application/json',
+                  'Access-Control-Request-Headers': '*',
+                  'api-key': "DnwgdZXY6S4HkShKhNgvk07aSxeEBdLXQbVQly1aENTWKzqXQjdNybLzCBGS5N0m",
                 }
 
                 response = requests.request("POST", url, headers=headers, data=payload)
@@ -177,20 +177,21 @@ while True:
         
         if user_call_type == "Pulled over friend":
                 pick_me_up(user_phone_number)
+
                 url = "https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/deleteOne"
 
                 payload = json.dumps({
-                "collection": "records",
-                "database": "employees",
-                "dataSource": "quickexit",
-                "filter": {
-                        "callTime": call_time
-                }
+                    "collection": "calls",
+                    "database": "quickexit",
+                    "dataSource": "quickexit",
+                    "filter": {
+                        "callTime":  call_time
+                    }
                 })
                 headers = {
-                'Content-Type': 'application/json',
-                'Access-Control-Request-Headers': '*',
-                'api-key': mongo_auth,
+                  'Content-Type': 'application/json',
+                  'Access-Control-Request-Headers': '*',
+                  'api-key': "DnwgdZXY6S4HkShKhNgvk07aSxeEBdLXQbVQly1aENTWKzqXQjdNybLzCBGS5N0m",
                 }
 
                 response = requests.request("POST", url, headers=headers, data=payload)
