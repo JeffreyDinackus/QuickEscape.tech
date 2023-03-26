@@ -170,33 +170,35 @@ while True:
         type(user_job_completed_status)
 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                for x in comp[x]:
-                        if item == comp[x]:
-                                sentinel = 1;
-                                print("pull2")
-               
-                if sentinel == 0:
-                        angry_dad(user_phone_number)
-                        comp.append(item)
-                        print(comp)
-                        x += 1
-                        print("pull1")
+                x = item;
+                if item == comp[x]:
+                        sentinel = 1;
+                        print("pull2")
 
-        #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
-        if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                for x in comp[x]:
-                        if item == comp[x]:
-                               sentinel = 1;
-                               print("1")
                 if sentinel == 0:
                         angry_dad(user_phone_number)
                         comp.append(item)
                         print(comp)
                         x += 1
                         print("test")
-        sentinel = 0;
-        comp.append(item)
-        print(comp)
+                        sentinel = 0;
+                        comp.append(item)
+                        print(comp)
+        #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
+        if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
+                x = item;
+                if item == comp[x]:
+                        sentinel = 1;
+                        print("1")
+                if sentinel == 0:
+                        angry_dad(user_phone_number)
+                        comp.append(item)
+                        print(comp)
+                        x += 1
+                        print("test")
+                        sentinel = 0;
+                        comp.append(item)
+                        print(comp)
         #str = repr(comp)
         #file.write("input_dictionary = " + str + "\n")
 
@@ -205,4 +207,3 @@ while True:
     #make it execute calls every cycle if there is a call going out.
     #runs every 10 seconds on a loop
     time.sleep(10)
-
