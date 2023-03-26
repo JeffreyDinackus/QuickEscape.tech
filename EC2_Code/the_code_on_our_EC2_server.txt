@@ -144,9 +144,13 @@ while True:
       'api-key': "DnwgdZXY6S4HkShKhNgvk07aSxeEBdLXQbVQly1aENTWKzqXQjdNybLzCBGS5N0m", 
     }
 
+
     response = requests.request("POST", url, headers=headers, data=payload)
 
-    print(response.json)
+    # print(response.json())
+    for item  in response.json()["documents"]:
+        print(item)
+        print(item["userEmail"])
     # Checks whether a scheduled task
     # is pending to run or not
     schedule.run_pending()
