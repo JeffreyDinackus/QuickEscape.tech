@@ -22,6 +22,8 @@ import requests
 import json
 url = "https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/find"
 
+file = open("Python.txt", "w")
+#convert variable to string
 
 # while True:
 #         print("test")
@@ -122,11 +124,20 @@ def angry_dad(final_phone_number):
 
 
 
-
-
+#this is a array of the completed jobs
+comp = []
+#this is a varaible that loops and keeps track of completed jobs
+x = 0
+#this is a sentinel that keeps track of if a job is done
+sentinel = 0
 # Loop so that the scheduling task
 # keeps on running all time.
+# f = open('Python.txt', 'r')
+# if f.mode=='r':
+#     contents= f.read()
 while True:
+    #open file
+    file = open("Python.txt", "w")
     current_time = time.time() * 1000
     payload = json.dumps({
         "collection": "calls",
@@ -158,13 +169,34 @@ while True:
         user_job_completed_status = item["completed"]
         type(user_job_completed_status)
 
-        if user_call_type == str("Pulled over friend") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                pick_me_up(user_phone_number)
-                #put api call here changing the completion status
-
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-               angry_dad(user_phone_number)
-               #put api call here changing the completion status
+                for x in comp[x]:
+                        if item == comp[x]:
+                               sentinel = 1;
+               
+                if sentinel == 0:
+                        angry_dad(user_phone_number)
+                        comp.append(item)
+                        print(comp)
+                        x += 1
+
+        #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
+        if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
+                for x in comp[x]:
+                        if item == comp[x]:
+                               sentinel = 1;
+               
+                if sentinel == 0:
+                        angry_dad(user_phone_number)
+                        comp.append(item)
+                        print(comp)
+                        x += 1
+        sentinel = 0;
+        #str = repr(comp)
+        #file.write("input_dictionary = " + str + "\n")
+
+        #close file
+        #file.close()
     #make it execute calls every cycle if there is a call going out.
     #runs every 10 seconds on a loop
     time.sleep(10)

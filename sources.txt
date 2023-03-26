@@ -4,3 +4,6 @@ https://www.twilio.com/docs/voice/tutorials/how-to-make-outbound-phone-calls/pyt
 
 We used this for basic mern stack scaffolding:
 https://www.mongodb.com/languages/mern-stack-tutorial
+
+code we almost used, it's commented out. 
+https://www.pythonpool.com/python-save-variable-to-file/
