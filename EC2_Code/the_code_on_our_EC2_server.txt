@@ -1,14 +1,24 @@
 #!/bin/python3
 # Download the helper library from https://www.twilio.com/docs/python/install
+#these imports for for twilio
 import os
 from twilio.rest import Client
 account_sid = os.environ['TWILIO_ACCOUNT_SID']
 auth_token = os.environ['TWILIO_AUTH_TOKEN']
 client = Client(account_sid, auth_token)
 
-#this is to make the wait time work
+#these imports are for scheduler
+from datetime import datetime
+now = datetime.now()
+
+#this is to make the wait time work for our loop
 from time import sleep
 
+#this is for the scheduling of our app
+# Schedule Library imported
+import schedule
+import time
+ 
 
 # while True:
 #         print("test")
@@ -25,12 +35,45 @@ from time import sleep
 
 #                 print(message.sid)
 
+#this is how we send our call to the user
+# call = client.calls.create(
+#         #this is hosted by twilio assets static hosting. 
+#         url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
+#         to='+1',
+#         from_='+1'
+#         )
 
-call = client.calls.create(
-        #this is hosted by twilio assets static hosting. 
-        url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
-        to='+1',
-        from_='+1'
-        )
+# print(call.sid)
+ 
+# Functions setup
+def message():
+    print("Get ready for Sudo Placement at Geeksforgeeks")
+ 
+# Task scheduling
+# After every 10mins geeks() is called.
+schedule.every(.1).minutes.do(geeks)
+ 
+# After every hour geeks() is called.
+schedule.every().hour.do(geeks)
+ 
+# Every day at 12am or 00:00 time bedtime() is called.
+schedule.every().day.at("00:00").do(bedtime)
+ 
+# After every 5 to 10mins in between run work()
+schedule.every(5).to(10).minutes.do(work)
+ 
+# Every monday good_luck() is called
+schedule.every().monday.do(good_luck)
+ 
+# Every tuesday at 18:00 sudo_placement() is called
+schedule.every().tuesday.at("18:00").do(sudo_placement)
+ 
+# Loop so that the scheduling task
+# keeps on running all time.
+while True:
+ 
+    # Checks whether a scheduled task
+    # is pending to run or not
+    schedule.run_pending()
+    time.sleep(1)
 
-print(call.sid)
