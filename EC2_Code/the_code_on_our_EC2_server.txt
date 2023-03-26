@@ -148,7 +148,7 @@ while True:
         print(item["completed"])
 
 
-        user_phone_number = "+1" + item["phoneNumber"]
+        user_phone_number = item["phoneNumber"]
         user_call_type = item["callType"]
         user_call_time = item["callTime"]
         user_job_completed_status = item["completed"]
