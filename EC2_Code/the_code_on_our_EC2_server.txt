@@ -155,7 +155,7 @@ while True:
     response = requests.request("POST", url, headers=headers, data=payload)
 
     # print(response.json())
-    for item  in response.json()["documents"]:
+    for item in response.json()["documents"]:
         print(item)
         print(item["phoneNumber"])
         print(item["callType"])
@@ -170,28 +170,35 @@ while True:
         type(user_job_completed_status)
 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                for x in comp[x]:
-                        if item == comp[x]:
-                               sentinel = 1;
-               
+                x = item;
+                if item == comp[x]:
+                        sentinel = 1;
+                        print("pull2")
+
                 if sentinel == 0:
                         angry_dad(user_phone_number)
                         comp.append(item)
                         print(comp)
                         x += 1
-
+                        print("test")
+                        sentinel = 0;
+                        comp.append(item)
+                        print(comp)
         #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                for x in comp[x]:
-                        if item == comp[x]:
-                               sentinel = 1;
-               
+                x = item;
+                if item == comp[x]:
+                        sentinel = 1;
+                        print("1")
                 if sentinel == 0:
                         angry_dad(user_phone_number)
                         comp.append(item)
                         print(comp)
                         x += 1
-        sentinel = 0;
+                        print("test")
+                        sentinel = 0;
+                        comp.append(item)
+                        print(comp)
         #str = repr(comp)
         #file.write("input_dictionary = " + str + "\n")
 
