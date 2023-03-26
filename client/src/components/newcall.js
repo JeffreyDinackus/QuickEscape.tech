@@ -2,20 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
-export default function NewCall(){
+export default function NewCall(props){
 	const [callTime, setCallTime] = useState("");
 	const [callType, setCallType] = useState("");
 	const [phoneNumber, setPhoneNumber] = useState("");
 	async function sendCall(){
-		console.log(JSON.stringify({
-		    "collection": "records",
-		    "database": "employees",
-		    "dataSource": "quickexit",
-		    "document": {
-		        "text": "hello from the data api"
-		    }}));
-		console.log('https://us-east-1.aws.realm.mongodb.com/api/client/v2.0/app/data-rwjpr/auth/providers/anon-user/login');
-	
 	const response = await fetch('https://us-east-1.aws.realm.mongodb.com/api/client/v2.0/app/data-rwjpr/auth/providers/anon-user/login', {
            method: "POST",
            headers: {
@@ -32,10 +23,11 @@ export default function NewCall(){
 		    "database": "quickexit",
 		    "dataSource": "quickexit",
 		    "document": {
-		        "userEmail": "jamestrombo@gmail.com",
+		        "userEmail": props.email,
 		        "callTime": Date.now() + callTime*60000,
 		        "callType": callType,
-		        "phoneNumber": phoneNumber
+		        "phoneNumber": phoneNumber,
+		        "completed": "false"
 		    }}),
            headers: {
              'Content-Type': 'application/json',
@@ -47,7 +39,7 @@ export default function NewCall(){
 return (
 	<>
 		<div className="card w-1/2 bg-base-300 shadow-xl">
-	<div className="card-body">
+	<div className="card-body place-items-center">
 	<select className="select select-primary w-full max-w-xs" onChange={(e) => setCallTime(e.target.value)}>
 		  <option disabled selected>What time call placed?</option>
 		  <option value="5">5 mins</option>
@@ -71,7 +63,7 @@ return (
 		</select>
 		<input type="text" placeholder="Insert phone number" className="input input-primary input-bordered w-full max-w-xs" onChange={(e) => setPhoneNumber(e.target.value)} />
 		<div className="card-actions justify-end">
-      <NavLink to="/"><button className="btn btn-primary" onClick={() => sendCall()}>Schedule</button></NavLink>
+      <NavLink to="/"><button className="btn btn-error">Cancel</button></NavLink><NavLink to="/"><button className="btn btn-primary" onClick={() => sendCall()}>Schedule</button></NavLink>
     </div>
 	</div>
 	</div>

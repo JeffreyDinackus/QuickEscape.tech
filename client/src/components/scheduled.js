@@ -2,13 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 
-export default function Scheduled(){
+export default function Scheduled(props){
 return (
 		<div className="card w-1/2 bg-base-300 shadow-xl">
-	<div className="card-body">
+	<div className="card-body place-items-center">
 		<div className="overflow-x-auto">
 		  <table className="table">
-		    {/* head */}
 		    <thead>
 		      <tr>
 		        <th>Time</th>
