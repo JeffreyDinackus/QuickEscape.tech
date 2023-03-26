@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
 const Row = (props) => (
  			<tr>
-		        <td>{props.time}</td>
+		        <td>{new Date(props.time).getHours() + " : " + new Date(props.time).getMinutes()}</td>
 		        <td>{props.type}</td>
 		      </tr>
   ); 
