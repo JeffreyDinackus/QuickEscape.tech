@@ -119,22 +119,7 @@ def angry_dad(final_phone_number):
         )
         print(message.sid)
 
-# Task scheduling
-# schedule.every(.3).minutes.do(pick_me_up(user_phone_number))
 
-
-
-#this is a array of the completed jobs
-comp = []
-#this is a varaible that loops and keeps track of completed jobs
-x = 0
-#this is a sentinel that keeps track of if a job is done
-sentinel = 0
-# Loop so that the scheduling task
-# keeps on running all time.
-# f = open('Python.txt', 'r')
-# if f.mode=='r':
-#     contents= f.read()
 while True:
     #open file
     file = open("Python.txt", "w")
@@ -168,42 +153,51 @@ while True:
         user_call_time = item["callTime"]
         user_job_completed_status = item["completed"]
         type(user_job_completed_status)
+        _id = item["_id"]
 
-        if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                x = item;
-                if item == comp[x]:
-                        sentinel = 1;
-                        print("pull2")
+        if user_call_type == "Angry dad":
+                angry_dad(user_phone_number)
+                url = "https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/deleteOne"
 
-                if sentinel == 0:
-                        angry_dad(user_phone_number)
-                        comp.append(item)
-                        print(comp)
-                        x += 1
-                        print("test")
-                        sentinel = 0;
-                        comp.append(item)
-                        print(comp)
-        #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
-        if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
-                x = item;
-                if item == comp[x]:
-                        sentinel = 1;
-                        print("1")
-                if sentinel == 0:
-                        angry_dad(user_phone_number)
-                        comp.append(item)
-                        print(comp)
-                        x += 1
-                        print("test")
-                        sentinel = 0;
-                        comp.append(item)
-                        print(comp)
-        #str = repr(comp)
-        #file.write("input_dictionary = " + str + "\n")
+                payload = json.dumps({
+                "collection": "records",
+                "database": "employees",
+                "dataSource": "quickexit",
+                "filter": {
+                        "_id": _id
+                }
+                })
+                headers = {
+                'Content-Type': 'application/json',
+                'Access-Control-Request-Headers': '*',
+                'api-key': mongo_auth,
+                }
 
-        #close file
-        #file.close()
+                response = requests.request("POST", url, headers=headers, data=payload)
+        
+        if user_call_type == "Pulled over friend":
+                pick_me_up(user_phone_number)
+                url = "https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/deleteOne"
+
+                payload = json.dumps({
+                "collection": "records",
+                "database": "employees",
+                "dataSource": "quickexit",
+                "filter": {
+                        "_id": _id
+                }
+                })
+                headers = {
+                'Content-Type': 'application/json',
+                'Access-Control-Request-Headers': '*',
+                'api-key': mongo_auth,
+                }
+
+                response = requests.request("POST", url, headers=headers, data=payload)
+
+
+
     #make it execute calls every cycle if there is a call going out.
     #runs every 10 seconds on a loop
     time.sleep(10)
+
