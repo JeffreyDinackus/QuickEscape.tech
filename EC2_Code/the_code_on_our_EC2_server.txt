@@ -138,7 +138,7 @@ while True:
     headers = {
       'Content-Type': 'application/json',
       'Access-Control-Request-Headers': '*',
-      'api-key': "", 
+      'api-key': mongo_auth, 
     }
 
 
@@ -160,11 +160,11 @@ while True:
         type(user_job_completed_status)
 
         if user_call_type == str("Pulled over friend") and user_job_completed_status == str("false") and (current_time >= user_call_time + 180 or current_time <= user_call_time - 180)
-                pick_me_up(user_phone_number)
+                pick_me_up(user_phone_number):
                 #put api call here changing the completion status
 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 180 or current_time <= current_time <= user_call_time - 180)
-               angry_dad(user_phone_number)
+               angry_dad(user_phone_number):
                #put api call here changing the completion status
     #make it execute calls every cycle if there is a call going out.
     #runs every 10 seconds on a loop
