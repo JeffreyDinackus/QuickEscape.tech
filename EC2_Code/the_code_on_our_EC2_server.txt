@@ -56,7 +56,7 @@ def pick_me_up(final_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/i_need_a_ride.mp3',
-                to=MY_PHONE,
+                to=final_phone_number,
                 from_=TWILIO_PHONE
                 )
         message = client.messages \
@@ -64,7 +64,7 @@ def pick_me_up(final_phone_number):
                 body='My car broke down and I dont have roadside, you gotta come get me',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=final_phone_number
         )
         print(message.sid)
         sleep(10)
@@ -73,7 +73,7 @@ def pick_me_up(final_phone_number):
                 body='I dont have roadside assistance...',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=final_phone_number
         )
         print(message.sid)
         sleep(10)
@@ -82,7 +82,7 @@ def pick_me_up(final_phone_number):
                 body='I really need you...',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=final_phone_number
         )
         print(message.sid)
 
@@ -91,7 +91,7 @@ def angry_dad(final_phone_number):
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/angry_dad.mp3',
-                to=MY_PHONE,
+                to=final_phone_number,
                 from_=TWILIO_PHONE
                 )
         message = client.messages \
@@ -99,7 +99,7 @@ def angry_dad(final_phone_number):
                 body='GET HOME RIGHT NOW.',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=final_phone_number
         )
         print(message.sid)
         sleep(15)
@@ -108,7 +108,7 @@ def angry_dad(final_phone_number):
                 body='GET HOME NOW.',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=final_phone_number
         )
         print(message.sid)
         sleep(10)
@@ -117,10 +117,10 @@ def angry_dad(final_phone_number):
                 body='YOU WONT DRIVE FOR A MONTH',
                 #hidden for privacy
                 from_=TWILIO_PHONE,
-                to=MY_PHONE
+                to=user_phone_number
         )
         print(message.sid)
- 
+
 # Task scheduling
 # schedule.every(.3).minutes.do(pick_me_up(user_phone_number))
 
@@ -131,7 +131,7 @@ def angry_dad(final_phone_number):
 # Loop so that the scheduling task
 # keeps on running all time.
 while True:
-    current_time = time.time()
+    current_time = time.time() * 1000
     payload = json.dumps({
         "collection": "calls",
         "database": "quickexit",
