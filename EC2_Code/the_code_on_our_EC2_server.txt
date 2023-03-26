@@ -151,7 +151,9 @@ while True:
     # print(response.json())
     for item  in response.json()["documents"]:
         print(item)
-        print(item["userEmail"])
+        print(item["phoneNumber"])
+        print(item["callType"])
+        print(item["callTime"])
     # Checks whether a scheduled task
     # is pending to run or not
     schedule.run_pending()
