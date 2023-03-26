@@ -154,8 +154,16 @@ while True:
         print(item["phoneNumber"])
         print(item["callType"])
         print(item["callTime"])
+
+
+        user_phone_number = item["phoneNumber"]
+        user_call_type = item["callType"]
+        user_call_time = item["callTime"]
+        #make it execute calls every cycle if there is a call going out.
+
+        
+        
     # Checks whether a scheduled task
     # is pending to run or not
     schedule.run_pending()
     time.sleep(10)
-    
