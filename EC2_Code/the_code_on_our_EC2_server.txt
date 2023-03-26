@@ -45,7 +45,7 @@ import time
 
 # print(call.sid)
  
-def pickMeUp():
+def pick_me_up():
         call = client.calls.create(
                 #this is hosted by twilio assets static hosting. 
                 url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
@@ -61,6 +61,22 @@ def pickMeUp():
         )
         print(message.sid)
 
+    
+def angry_dad():
+        call = client.calls.create(
+                #this is hosted by twilio assets static hosting. 
+                url='https://telemagenta-goldfish-8538.twil.io/assets/quickEscape.mp3',
+                to='+12024597238',
+                from_='+18339023143'
+                )
+        message = client.messages \
+        .create(
+                body='GET HOME RIGHT NOW.',
+                #hidden for privacy
+                from_='+18339023143',
+                to='+12024597238'
+        )
+        print(message.sid)
 
 # Functions setup
 def message():
