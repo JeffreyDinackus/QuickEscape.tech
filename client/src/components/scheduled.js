@@ -1,16 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { NavLink } from "react-router-dom";
-const Row = (props) => (
- 			<tr>
-		        <td>{new Date(props.time).getHours() + " : " + new Date(props.time).getMinutes()}</td>
-		        <td>{props.type}</td>
-		      </tr>
-  ); 
 export default function Scheduled(props){
 	const [calls, setCalls] = useState([]);
 	const [items, setItems] = useState([]);
 	const [access_token, setAccess_token] = useState('');
+	async function deleteOne(id){
+		console.log(id);
+		const response2 = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/data-rwjpr/endpoint/data/v1/action/deleteOne', {
+		           method: "POST",
+		           body: JSON.stringify({
+				    "collection": "calls",
+				    "database": "quickexit",
+				    "dataSource": "quickexit",
+				    "filter": {
+				       "_id": id
+				     }
+				    }),
+		           headers: {
+		             'Content-Type': 'application/json',
+		  			 'Authorization': 'Bearer ' + access_token
+		           },
+				});
+	}
+	const Row = (props) => (
+ 			<tr>
+		        <td>{new Date(props.time).getHours() + " : " + new Date(props.time).getMinutes()}</td>
+		        <td>{props.type}</td>
+		        <td><NavLink to="/"><button className="btn btn-error" onClick={()=>deleteOne(props._id)}>Delete</button></NavLink></td>
+			</tr>
+  ); 
+
 	useEffect(() => {
 	async function getCalls(){
 		
@@ -59,7 +79,7 @@ function callList(){
 	if (calls){
 		return calls.map((call) => {
 		return (
-			<Row type={call.callType} time={call.callTime}/>
+			<Row type={call.callType} time={call.callTime} id={call._id}/>
 			);
 	});
 	}
@@ -73,6 +93,7 @@ return (
 		      <tr>
 		        <th>Time</th>
 		        <th>Call/Text Type</th>
+		        <th></th>
 		      </tr>
 		    </thead>
 		    <tbody>
