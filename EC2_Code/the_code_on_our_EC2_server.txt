@@ -157,12 +157,14 @@ while True:
         user_call_type = item["callType"]
         user_call_time = item["callTime"]
         user_job_completed_status = item["completed"]
+        if user_job_completed_status == "false":
+                user_job_completed_status_final = True
 
-        if user_call_type == "Pulled over friend" and user_job_completed_status == False and (current_time >= user_call_time + 180 or current_time <= user_call_time - 180):
+        if user_call_type == "Pulled over friend" and user_job_completed_status_final == False and (current_time >= user_call_time + 180 or current_time <= user_call_time - 180):
                 pick_me_up(user_phone_number)
                 #put api call here changing the completion status
         
-        if user_call_type == "Angry dad" and user_job_completed_status == False (current_time >= user_call_time + 180 or current_time <= user_call_time - 180):
+        if user_call_type == "Angry dad" and user_job_completed_status_final == False (current_time >= user_call_time + 180 or current_time <= user_call_time - 180):
               angry_dad(user_phone_number)
               #put api call here changing the completion status
         #make it execute calls every cycle if there is a call going out.
