@@ -132,9 +132,9 @@ x = 0
 sentinel = 0
 # Loop so that the scheduling task
 # keeps on running all time.
-f = open('Python.txt', 'r')
-if f.mode=='r':
-    contents= f.read()
+# f = open('Python.txt', 'r')
+# if f.mode=='r':
+#     contents= f.read()
 while True:
     #open file
     file = open("Python.txt", "w")
@@ -171,7 +171,7 @@ while True:
 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
                 for x in comp[x]:
-                        if x == comp[x]:
+                        if item == comp[x]:
                                sentinel = 1;
                
                 if sentinel == 0:
@@ -183,7 +183,7 @@ while True:
         #the purpose of this logic is to check if IT IS TIME TO EXECUTE, AND IF ALREADY EXECUTED. 
         if user_call_type == str("Angry dad") and user_job_completed_status == str("false") and (current_time >= user_call_time + 360 or current_time <= user_call_time - 360):
                 for x in comp[x]:
-                        if x == comp[x]:
+                        if item == comp[x]:
                                sentinel = 1;
                
                 if sentinel == 0:
