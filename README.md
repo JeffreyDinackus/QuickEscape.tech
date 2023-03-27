@@ -1,4 +1,4 @@
-# QuickEscape.Tech, a project for hooacks 2023
+# QuickEscape.Tech, a project for hoohacks 2023
 
 # The purpose of this app is to get people who are feeling uncomfortable or threatened out of dates by giving them the out of a fake phone call or text message of their choosing. 
 
